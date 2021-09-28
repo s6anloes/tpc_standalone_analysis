@@ -1,0 +1,78 @@
+\documentclass{scrreprt} 
+
+\KOMAoptions{fontsize=12pt,paper=a4}                                    	%Schriftgroesse und Papiergroesse
+\KOMAoptions{DIV=11}
+%Zeilenbreite
+\KOMAoptions{listof=totoc} 							%Tabellen und Bilderverzeichnis im Inhaltsverzeichnis
+
+\usepackage[english]{babel}
+% Deutsches Sprachpaket mit neuer Rechtschr.
+\usepackage[utf8]{inputenc}							%UTF-8 Encoding
+\usepackage{paralist}								%Auflistungen mit Buchstaben anstatt Zahlen
+\usepackage[T1]{fontenc}							%Direkte Eingabe von deutschen Sonderzeichen?
+\usepackage[autostyle=true]{csquotes}				                %Richtige Anführungszeichen im Deutschen
+\usepackage{amsmath}
+%Mathe Symbole
+\usepackage{commath} 								%Differential Paket
+\usepackage{xfrac}								%Bessere Brüche
+%\usepackage{IEEEtrantools}							%Bessere Gleichungen
+\usepackage[varg]{txfonts}							%Schönere Schrift
+\usepackage{graphicx, epstopdf}								%Graphiken einbinden
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+
+\usepackage[separate-uncertainty]{siunitx}								%Pakete für Einheiten
+\DeclareSIUnit\gauss{G}
+\DeclareSIUnit\eVperc{\eV\per\clight}
+\DeclareSIUnit\clight{\text{\ensuremath{c}}}
+\usepackage[backend=biber, style=numeric, backend=bibtex]{biblatex}                            	%Paket zum Zitieren
+\usepackage{hyperref}								%Klickbare Elemente im PDF
+\usepackage[all]{hypcap}
+%Verweise auf Abbildungen besser gesetzt
+\graphicspath{{figs/}}						 	        %Graphik Pfad
+\sisetup{locale = UK} 							        %Deutsch als locale für die Zahlen und Einheiten
+\usepackage{listings}								%Zum Einbinden von Programmcode verwenden wir das listings-Paket
+\usepackage{xcolor}								%Für Syntax-Highlighting
+\usepackage[section]{placeins}
+
+\newcommand*{\hit}{Hit\xspace}
+\newcommand*{\hits}{Hits\xspace}
+\newcommand*{\btwo}{\texttt{basf2}\xspace}
+
+\addbibresource{refs.bib}
+
+% Titel, Autor und Datum
+\title{TPC Event Overlay Code Manual}
+%\subtitle{Lab Course - Gruppe P10}
+\date{30th of August 2021}
+\author{Andreas Loeschcke Centeno}
+
+\begin{document}
+
+%Titelseite ausgeben
+\maketitle
+
+% Römische Zahlen für die Seitennummern des Inhaltsverzeichnisses
+\pagenumbering{Roman}
+
+\tableofcontents
+
+\newpage
+
+%Normale Zahlen für die Seitennummern des Fliesstexte
+\pagenumbering{arabic}
+
+
+% Berichtsteil zum LaTeX-Block der Vorlesung
+
+\input{introduction}
+\input{overlay}
+
+
+\listoffigures
+\listoftables
+\printbibliography[heading=bibintoc]
+
+\end{document}
+
