@@ -1,0 +1,5 @@
+\chapter{Introduction} 
+The event overlay code was written to visualize the event overlap in the TPC volume. Since \btwo only simulates single events, this was not directly possible in the framework but was instead done in standalone code.
+
+The code is based on reading files containing single events and manually place the data to a new root file. This makes the output file unusable in \btwo since this method only deals with the data tree but not the persistent tree. The code is not well-maintained and there are probably some memory leaks. Ideally the event overlay is moved to \btwo since it is not sustainable to have the code as standalone code. If this turns out to be impossible the next best alternative would be to find a way to create a valid persistent tree such that only the overlay is done in standalone code but not the following modules like the digitizer and background rejection. In the current version these modules are re-implemented in the overlay code such that changes would have to be maintained in two places. It is also in the background rejection module where I suspect the memory leaks to be located.
+
